@@ -28,11 +28,11 @@ namespace TechJobs6Persistent.Controllers
 
             return View(jobs);
         }
-
+        [HttpGet]
         public IActionResult Add()
-        {
-            List<Employer> employers = context.Employers.ToList();
-            AddJobViewModel viewModel = new AddJobViewModel(employers);
+        {            
+            AddJobViewModel viewModel = new AddJobViewModel(context.Employers.ToList());
+            
             return View(viewModel);
         }
 
@@ -51,10 +51,8 @@ namespace TechJobs6Persistent.Controllers
                 context.SaveChanges();
 
                 return Redirect("/Job");
-            } else
-            {
-                return View("Add", addJobViewModel);
             }
+            return View(addJobViewModel);
         }
 
         public IActionResult Delete()
@@ -69,7 +67,7 @@ namespace TechJobs6Persistent.Controllers
         {
             foreach (int jobId in jobIds)
             {
-                Job theJob = context.Jobs.Find(jobId);
+                Job? theJob = context.Jobs.Find(jobId);
                 context.Jobs.Remove(theJob);
             }
 
@@ -80,7 +78,10 @@ namespace TechJobs6Persistent.Controllers
 
         public IActionResult Detail(int id)
         {
-            Job theJob = context.Jobs.Include(j => j.Employer).Include(j => j.Skills).Single(j => j.Id == id);
+            Job theJob = context.Jobs
+                .Include(j => j.Employer)
+                .Include(j => j.Skills)
+                .Single(j => j.Id == id);
 
             JobDetailViewModel jobDetailViewModel = new JobDetailViewModel(theJob);
 

@@ -9,6 +9,7 @@ namespace TechJobs6Persistent.ViewModels
         public int JobId { get; set; }
         public string Name { get; set; }
         public string EmployerName { get; set; }
+        public int EmloyerId { get; set; }
         public string SkillText { get; set; }
 
         public JobDetailViewModel(Job theJob)
@@ -16,6 +17,7 @@ namespace TechJobs6Persistent.ViewModels
             JobId = theJob.Id;
             Name = theJob.Name;
             EmployerName = theJob.Employer.Name;
+            EmloyerId = theJob.Employer.Id;
             SkillText = "";
             List<Skill> skills = theJob.Skills.ToList();
 

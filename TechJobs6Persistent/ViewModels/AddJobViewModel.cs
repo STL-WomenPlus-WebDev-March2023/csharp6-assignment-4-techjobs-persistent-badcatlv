@@ -19,7 +19,7 @@ namespace TechJobs6Persistent.ViewModels
             {
                 Employers.Add(new SelectListItem
                 {
-                    Value = employer.Name,
+                    Value = employer.Id.ToString(),
                     Text = employer.Name,
                 });
             }
