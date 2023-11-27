@@ -6,13 +6,13 @@
 
 <form asp-controller="Job" asp-action="Add" method="post">
     <div class="form-group">
-        <label asp-for="Name">Name</label>
+        <label asp-for="Name"></label>
         <input asp-for="Name" class="form-control" />
         <span asp-validation-for="Name"></span>
     </div>
     <br />
     <div class="form-group">
-        <label asp-for="Employers">Employer</label><br />
+        <label asp-for="Employers"></label><br />
         <select asp-for="EmployerId" asp-items="Model.Employers"></select>
         <span asp-validation-for="EmployerId"></span>
         <br />
