@@ -15,4 +15,42 @@ html {
 
 body {
   margin-bottom: 60px;
+  font-family: Georgia;
+  background-color:azure;
+}
+
+form {
+    border: dotted 2px black;
+    padding: 20px;
+    margin: 40px 4px 40px 4px;
+    background-color: lightgrey;
+}
+
+a {
+    color:dimgray;
+}
+
+a:hover {
+    color:darkseagreen;
+}
+li {
+    font-weight: bold;
+    color: darkseagreen;
+}
+
+.container-fluid {
+    background-color:azure;
+}
+
+.table {
+    border: dotted 2px black;
+    margin: 40px 4px 40px 4px;
+    
+}
+
+
+
+h1, h2, h3 {
+    color: black;
+    opacity: 0.75;
 }
