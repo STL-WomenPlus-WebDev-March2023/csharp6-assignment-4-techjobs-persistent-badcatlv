@@ -13,6 +13,11 @@ else
         @foreach (var skill in Model.Jobs)
         {
             <li>@skill.Name</li>
+            <p><a asp-controller="Employer" asp-action="About" asp-route-id=@skill.EmployerId>Employer Info</a></p>
+            <p><a asp-controller="Job" asp-action="Detail" asp-route-id=@skill.Id>Job Info</a></p>
+
         }
+       
+        
     </ul>
 }
